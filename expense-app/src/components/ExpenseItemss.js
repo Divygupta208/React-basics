@@ -6,7 +6,7 @@ const ExpenseItemss = ({ expenses }) => {
     <div>
       {expenses.map((item) => (
         <ExpenseItems
-          expenseDate={item.date.getFullYear()}
+          expenseDate={item.date}
           expenseTitle={item.title}
           expenseAmount={item.amount}
           expenseLoc={item.location}

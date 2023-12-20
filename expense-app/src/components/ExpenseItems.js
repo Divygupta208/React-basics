@@ -1,5 +1,7 @@
 import React from "react";
 import "./ExpenseItems.css";
+import ExpenseDate from "./ExpenseDate";
+import ExpenseDetails from "./ExpenseDetails";
 
 function ExpenseItems({
   expenseDate,
@@ -9,12 +11,12 @@ function ExpenseItems({
 }) {
   return (
     <div className="expense-item">
-      <h1>{expenseDate}</h1>
-      <div className="expense-item__description">
-        <h2>{expenseTitle}</h2>
-        <div className="expense-location">{expenseLoc}</div>
-        <div className="expense-item__price">{expenseAmount}</div>
-      </div>
+      <ExpenseDate expdate={expenseDate}></ExpenseDate>
+      <ExpenseDetails
+        amount={expenseAmount}
+        loc={expenseLoc}
+        title={expenseTitle}
+      ></ExpenseDetails>
     </div>
   );
 }
