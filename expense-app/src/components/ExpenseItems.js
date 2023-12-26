@@ -10,6 +10,10 @@ function ExpenseItems({
   expenseAmount,
   expenseLoc,
 }) {
+  const handleDelete = (e) => {
+    console.log("button Clicked");
+  };
+
   return (
     <Card className="expense-item">
       <ExpenseDate expdate={expenseDate}></ExpenseDate>
@@ -18,6 +22,7 @@ function ExpenseItems({
         loc={expenseLoc}
         title={expenseTitle}
       ></ExpenseDetails>
+      <button onClick={handleDelete}>X</button>
     </Card>
   );
 }
