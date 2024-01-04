@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
@@ -18,8 +18,20 @@ const ExpenseForm = () => {
     setEnteredDate(e.target.value);
   };
 
+  const handleFormsubmit = (e) => {
+    e.preventDefault();
+
+    const enteredData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+
+    console.log(enteredData);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleFormsubmit}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
@@ -36,12 +48,7 @@ const ExpenseForm = () => {
         </div>
         <div className="new-expense__control">
           <label>Date</label>
-          <input
-            type="date"
-            min="0.01"
-            step="0.01"
-            onChange={handleDateChange}
-          />
+          <input type="date" onChange={handleDateChange} />
         </div>
         /
       </div>
