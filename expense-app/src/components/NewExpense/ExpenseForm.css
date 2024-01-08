@@ -24,3 +24,9 @@
 .new-expense__actions {
   text-align: right;
 }
+
+.new-expense__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}

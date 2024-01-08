@@ -34,38 +34,57 @@ const ExpenseForm = (props) => {
     setEnteredDate("");
   };
 
-  return (
-    <form onSubmit={handleFormsubmit}>
-      <div className="new-expense__controls">
-        <div className="new-expense__control">
-          <label>Title</label>
-          <input
-            type="text"
-            value={enteredTitle}
-            onChange={handleTitleChange}
-          />
+  let [formVisible, setFormVisible] = useState(false);
+
+  const handleFormVisible = () => {
+    setFormVisible(!formVisible);
+  };
+
+  if (formVisible) {
+    return (
+      <form onSubmit={handleFormsubmit}>
+        <div className="new-expense__controls">
+          <div className="new-expense__control">
+            <label>Title</label>
+            <input
+              type="text"
+              value={enteredTitle}
+              onChange={handleTitleChange}
+            />
+          </div>
+          <div className="new-expense__control">
+            <label>Amount</label>
+            <input
+              type="number"
+              min="0.01"
+              step="0.01"
+              value={enteredAmount}
+              onChange={handleAmountChange}
+            />
+          </div>
+          <div className="new-expense__control">
+            <label>Date</label>
+            <input
+              type="date"
+              value={enteredDate}
+              onChange={handleDateChange}
+            />
+          </div>
+          /
         </div>
-        <div className="new-expense__control">
-          <label>Amount</label>
-          <input
-            type="number"
-            min="0.01"
-            step="0.01"
-            value={enteredAmount}
-            onChange={handleAmountChange}
-          />
+        <div className="new-expense__buttons">
+          <div className="new-expense__actions">
+            <button onClick={handleFormVisible}>Cancel</button>
+          </div>
+          <div className="new-expense__actions">
+            <button type="submit">Add Expense</button>
+          </div>
         </div>
-        <div className="new-expense__control">
-          <label>Date</label>
-          <input type="date" value={enteredDate} onChange={handleDateChange} />
-        </div>
-        /
-      </div>
-      <div className="new-expense__actions">
-        <button type="submit">Add</button>
-      </div>
-    </form>
-  );
+      </form>
+    );
+  } else {
+    return <button onClick={handleFormVisible}>Add New Expenses</button>;
+  }
 };
 
 export default ExpenseForm;

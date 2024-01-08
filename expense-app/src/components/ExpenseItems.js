@@ -30,8 +30,6 @@ function ExpenseItems({
         loc={expenseLoc}
         title={title}
       ></ExpenseDetails>
-      <button onClick={handleTitleChange}>change</button>
-      <button onClick={handleAmountChange}>changeAmount</button>
     </Card>
   );
 }
